@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <img onclick="setTurn('1')" id='1' src="blank.jpg">
+    <img onclick="setTurn('2')" id='2'  src="blank.jpg">
+    <img onclick="setTurn('3')" id='3' src="blank.jpg">
+    </center>
+    <center>
+    <img onclick="setTurn('4')" id='4' src="blank.jpg">
+    <img onclick="setTurn('5')" id='5' src="blank.jpg">
+    <img onclick="setTurn('6')" id='6' src="blank.jpg">
+    </center>
+    <center>
+    <img onclick="setTurn('7')" id='7' src="blank.jpg">
+    <img onclick="setTurn('8')" id='8' src="blank.jpg">
+    <img onclick="setTurn('9')" id='9' src="blank.jpg">
+</center>
+</body>
+<script>
+    let turn = false
+    let setTurn = (ids)=>{
+        turn = !turn
+        if(turn){
+            document.getElementById(ids).src = 'krestik.png'
+        }
+        else{
+            document.getElementById(ids).src = 'nolik.png'
+        }
+    }
+</script>
+<style>
+    img{
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+        border: solid 1px grey;
+        padding: 5px;
+    }
+</style>
+</html>
