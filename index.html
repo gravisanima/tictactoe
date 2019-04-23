@@ -68,12 +68,14 @@
     let check = (ids1, ids2, ids3)=>{
         if(document.getElementById(ids1).src == document.getElementById(ids2).src && document.getElementById(ids3).src == document.getElementById(ids2).src){
             if(document.getElementById(ids1).src.includes('nolik.png')){
-                document.getElementById('11').innerHTML += 1
+                let i = document.getElementById('11').innerHTML
+                document.getElementById('11').innerHTML = parseInt (i)+1
                 document.getElementById('12').play()
                 reset()
             }
             if(document.getElementById(ids1).src.includes('krestik.png')){
-                document.getElementById('10').innerHTML += 1
+                let i = document.getElementById('10').innerHTML
+                document.getElementById('10').innerHTML = parseInt (i)+1
                 document.getElementById('12').play()
                 reset()
             }
@@ -99,5 +101,9 @@
    @media screen and (max-device-width: 850px) {
     .score {}
    }
+    *{
+        font-size: 40px;
+        font-weight: 500;
+    }
 </style>
 </html>
