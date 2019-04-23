@@ -21,7 +21,7 @@
     <img onclick="setTurn('8')" id='8' src="blank.jpg">
     <img onclick="setTurn('9')" id='9' src="blank.jpg">
 </center>
-    <div style="position: absolute;top:50px;right:50px">
+    <div class="score">
         <div style="display: inline-block">
         <img src="krestik.png">
         <div id="10">
@@ -88,5 +88,16 @@
         border: solid 1px grey;
         padding: 5px;
     }
+
+   @media screen and (min-device-width: 850px) {
+    .score {
+        position: absolute;
+        top:50px;
+        right:50px
+    }
+   }
+   @media screen and (max-device-width: 850px) {
+    .score {}
+   }
 </style>
 </html>
