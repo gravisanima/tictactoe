@@ -8,7 +8,7 @@
 <body>
 <center>
     <img onclick="setTurn('1')" id='1' src="blank.jpg">
-    <img onclick="setTurn('2')" id='2'  src="blank.jpg">
+    <img onclick="setTurn('2')" id='2' src="blank.jpg">
     <img onclick="setTurn('3')" id='3' src="blank.jpg">
     </center>
     <center>
@@ -21,16 +21,62 @@
     <img onclick="setTurn('8')" id='8' src="blank.jpg">
     <img onclick="setTurn('9')" id='9' src="blank.jpg">
 </center>
+    <div style="position: absolute;top:50px;right:50px">
+        <div style="display: inline-block">
+        <img src="krestik.png">
+        <div id="10">
+            0
+        </div>
+        </div>
+        <div style="display: inline-block">
+        <img src="nolik.png">
+        <div id="11">
+            0
+        </div>
+            </div>
+        <br/>
+        <img onclick="reset()" src="reset.png">
+    </div>
+    <audio src="win.wav" id="12"></audio>
 </body>
 <script>
     let turn = false
     let setTurn = (ids)=>{
-        turn = !turn
-        if(turn){
-            document.getElementById(ids).src = 'krestik.png'
+        if(document.getElementById(ids).src.includes('blank.jpg')) {
+            turn = !turn
+            if (turn) {
+                document.getElementById(ids).src = 'krestik.png'
+            }
+            else {
+                document.getElementById(ids).src = 'nolik.png'
+            }
+            check('1','2','3')
+            check('4','5','6')
+            check('7','8','9')
+            check('1','4','7')
+            check('2','5','8')
+            check('3','6','9')
+            check('1','5','9')
+            check('3','5','7')
         }
-        else{
-            document.getElementById(ids).src = 'nolik.png'
+    }
+    let reset = ()=>{
+        for(i=1; i<=9; i++){
+            document.getElementById(i).src = 'blank.jpg'
+        }
+    }
+    let check = (ids1, ids2, ids3)=>{
+        if(document.getElementById(ids1).src == document.getElementById(ids2).src && document.getElementById(ids3).src == document.getElementById(ids2).src){
+            if(document.getElementById(ids1).src.includes('nolik.png')){
+                document.getElementById('11').innerHTML += 1
+                document.getElementById('12').play()
+                reset()
+            }
+            if(document.getElementById(ids1).src.includes('krestik.png')){
+                document.getElementById('10').innerHTML += 1
+                document.getElementById('12').play()
+                reset()
+            }
         }
     }
 </script>
